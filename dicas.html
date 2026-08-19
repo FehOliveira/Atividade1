@@ -3,47 +3,392 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Receitas da Galera - Dicas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Dicas e segredos culinários práticos para dominar a cozinha, salvar receitas e aprimorar seus pratos no Receitas da Galera.">
+    <title>Receitas da Galera - Dicas de Cozinha</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>🍽️ Receitas da Galera</h1>
-    <nav>
-        <a href="index.html">Início</a> |
-        <a href="doces.html">Doces</a> |
-        <a href="salgados.html">Salgados</a> |
-        <a href="dicas.html">Dicas</a> |
-        <a href="sobre.html">Sobre</a>
-    </nav>
-    <hr>
+    <!-- Cabeçalho / Navegação -->
+    <header class="site-header">
+        <div class="container">
+            <h1>🍽️ Receitas da Galera</h1>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="index.html">Início</a>
+                <a href="doces.html">Doces</a>
+                <a href="salgados.html">Salgados</a>
+                <a href="dicas.html" class="active" aria-current="page">Dicas</a>
+                <a href="sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </header>
 
-    <h2>Dicas de Cozinha</h2>
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div>
+                <span class="hero-tag">💡 Dicas & Segredos Culinários</span>
+                <h2 id="hero-title">Truques de Cozinha para Facilitar sua Vida</h2>
+                <p>Aprenda técnicas práticas, segredos de chefs e soluções rápidas para acertar o ponto, economizar
+                    tempo e nunca mais estragar uma receita.</p>
+                <div class="hero-actions">
+                    <button id="randomTipBtn" class="btn-primary" aria-label="Sortear uma dica culinária aleatória">🎲
+                        Sortear Dica Aleatória</button>
+                    <a href="#conversao" class="btn-secondary">📏 Tabela de Medidas</a>
+                    <a href="#enviar-dica" class="btn-secondary">✍️ Enviar Dica</a>
+                </div>
+            </div>
+        </section>
 
-    <h3>Temperos essenciais</h3>
-    <ul>
-        <li><strong>Alho e cebola:</strong> base de quase todo prato salgado</li>
-        <li><strong>Páprica:</strong> dá cor e sabor defumado</li>
-        <li><strong>Orégano:</strong> perfeito para pratos italianos</li>
-    </ul>
+        <!-- Dica de Ouro em Destaque -->
+        <section class="gold-tip-card" aria-label="Dica de Ouro da Semana">
+            <div class="gold-tip-header">
+                <span class="gold-badge">⭐ Dica de Ouro da Semana</span>
+                <button class="card-btn-action" id="copyGoldTipBtn" title="Copiar dica para a área de transferência"
+                    style="color:#ffffff;">
+                    📋 Copiar Dica
+                </button>
+            </div>
+            <h3>Como salvar um molho ou ensopado que ficou muito salgado?</h3>
+            <p>Se você pesou a mão no sal no molho, sopa ou ensopado, não jogue fora! Descasque uma <strong>batata crua
+                    média</strong>, corte-a em rodelas grossas e coloque na panela enquanto ela ainda cozinha em fogo
+                baixo por cerca de 10 a 15 minutos.</p>
+            <div class="gold-tip-box">
+                <strong>💡 O Segredo Científico:</strong> A batata rica em amido absorve parte do líquido com alta
+                concentração de sódio. Retire as rodelas antes de servir. Outro truque excelente para molhos é adicionar
+                algumas gotas de limão ou uma pitada de açúcar para equilibrar as papilas gustativas!
+            </div>
+        </section>
 
-    <h3>Técnicas úteis</h3>
-    <ul>
-        <li>Deixe a carne descansar 5 minutos após cozinhar antes de cortar</li>
-        <li>Sempre preaqueça o forno antes de assar</li>
-        <li>Para o arroz não grudar, refogue antes de adicionar a água</li>
-    </ul>
+        <!-- Filtros e Barra de Pesquisa de Dicas -->
+        <section class="tips-filter-bar" aria-label="Filtro e Busca de Dicas">
+            <div class="search-box">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="search" id="tipSearchInput" class="search-input"
+                    placeholder="Buscar dica por ingrediente ou técnica (ex: cebola, sal, bolo, brigadeiro, ponto...)"
+                    aria-label="Campo de busca de dicas">
+            </div>
 
-    <h3>Conservação de alimentos</h3>
-    <ul>
-        <li>Guarde ervas frescas na geladeira dentro de um potinho com água</li>
-        <li>Congele carnes em porções individuais</li>
-        <li>Mantenha farinha e açúcar em potes fechados</li>
-    </ul>
+            <div class="categories-pills" role="tablist" aria-label="Filtrar por categoria">
+                <button class="pill-btn active" data-category="todas" role="tab" aria-selected="true">✨ Todas as
+                    Dicas</button>
+                <button class="pill-btn" data-category="tecnica" role="tab" aria-selected="false">🔪 Preparo &
+                    Técnicas</button>
+                <button class="pill-btn" data-category="confeitaria" role="tab" aria-selected="false">🍰 Confeitaria &
+                    Massas</button>
+                <button class="pill-btn" data-category="temperos" role="tab" aria-selected="false">🧂 Temperos &
+                    Molhos</button>
+                <button class="pill-btn" data-category="conservacao" role="tab" aria-selected="false">❄️ Conservação &
+                    Validade</button>
+                <button class="pill-btn" data-category="rapida" role="tab" aria-selected="false">⏱️ Truques
+                    Rápidos</button>
+            </div>
+        </section>
 
-    <hr>
-    <footer>
-        <p>&copy; 2026 Receitas da Galera - Feito pelo grupo</p>
+        <!-- Grade de Cards de Dicas -->
+        <section class="cards-section" aria-labelledby="tips-grid-title">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <h3 id="tips-grid-title">Dicas e Truques Práticos</h3>
+                <span id="tipsCount" style="color: var(--muted); font-size: 14px;">12 dicas disponíveis</span>
+            </div>
+
+            <div class="cards" id="tipsContainer" aria-live="polite">
+                <!-- Cards de dicas serão renderizados dinamicamente pelo script.js -->
+            </div>
+        </section>
+
+        <!-- Guia Prático de Conversão de Medidas e Equivalências -->
+        <section class="conversion-section" id="conversao" aria-labelledby="conversion-title">
+            <h3 id="conversion-title">📏 Tabela Rápida de Medidas & Equivalências</h3>
+            <p class="section-subtitle">Diga adeus às receitas desastrosas por erro de dosagem. Use nossa tabela de
+                conversão rápida!</p>
+
+            <div class="conversion-grid">
+                <!-- Tabela 1: Xícaras em Gramas -->
+                <div class="table-card">
+                    <div class="table-card-header">
+                        <span>🥣 Xícaras para Gramas (1 xícara padrão de 240ml)</span>
+                    </div>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Ingrediente</th>
+                                <th>1 Xícara</th>
+                                <th>1/2 Xícara</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Farinha de Trigo</td>
+                                <td>120 g</td>
+                                <td>60 g</td>
+                            </tr>
+                            <tr>
+                                <td>Açúcar Refinado</td>
+                                <td>180 g</td>
+                                <td>90 g</td>
+                            </tr>
+                            <tr>
+                                <td>Açúcar Cristal</td>
+                                <td>200 g</td>
+                                <td>100 g</td>
+                            </tr>
+                            <tr>
+                                <td>Manteiga / Margarina</td>
+                                <td>200 g</td>
+                                <td>100 g</td>
+                            </tr>
+                            <tr>
+                                <td>Chocolate em Pó / Cacau</td>
+                                <td>100 g</td>
+                                <td>50 g</td>
+                            </tr>
+                            <tr>
+                                <td>Líquidos (Leite, Água, Óleo)</td>
+                                <td>240 ml</td>
+                                <td>120 ml</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabela 2: Colheres e Volumes -->
+                <div class="table-card">
+                    <div class="table-card-header">
+                        <span>🥄 Medidas em Colheres e Líquidos</span>
+                    </div>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Medida</th>
+                                <th>Equivalente em ml</th>
+                                <th>Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 Colher de Sopa</td>
+                                <td>15 ml</td>
+                                <td>3 colheres de chá</td>
+                            </tr>
+                            <tr>
+                                <td>1 Colher de Sobremesa</td>
+                                <td>10 ml</td>
+                                <td>2 colheres de chá</td>
+                            </tr>
+                            <tr>
+                                <td>1 Colher de Chá</td>
+                                <td>5 ml</td>
+                                <td>1/3 colher de sopa</td>
+                            </tr>
+                            <tr>
+                                <td>1 Colher de Café</td>
+                                <td>2.5 ml</td>
+                                <td>1/2 colher de chá</td>
+                            </tr>
+                            <tr>
+                                <td>1 Copo Americano</td>
+                                <td>190 ml</td>
+                                <td>Até a risca / marca</td>
+                            </tr>
+                            <tr>
+                                <td>1 Pitada (Sal / Pimenta)</td>
+                                <td>~ 0.5 g</td>
+                                <td>Entre dois dedos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabela 3: Temperaturas de Forno -->
+                <div class="table-card">
+                    <div class="table-card-header">
+                        <span>🔥 Temperaturas do Forno</span>
+                    </div>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Classificação</th>
+                                <th>Temperatura</th>
+                                <th>Ideal para</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Forno Brando / Baixo</td>
+                                <td>140°C a 160°C</td>
+                                <td>Suspiros, pudins e merengues</td>
+                            </tr>
+                            <tr>
+                                <td>Forno Médio / Moderado</td>
+                                <td>180°C</td>
+                                <td>Bolos, tortas e biscoitos</td>
+                            </tr>
+                            <tr>
+                                <td>Forno Alto</td>
+                                <td>200°C a 220°C</td>
+                                <td>Pães, carnes e quiches</td>
+                            </tr>
+                            <tr>
+                                <td>Forno Muito Forte</td>
+                                <td>240°C+</td>
+                                <td>Pizzas e gratinados rápidos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ de Cozinha (Accordion) -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <h3 id="faq-title">❓ Dúvidas Frequentes & Como Resolver</h3>
+            <p class="section-subtitle">Perguntas clássicas da cozinha respondidas de forma simples e direta.</p>
+
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Como tirar o cheiro forte de alho e cebola das mãos?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        Esfregue as mãos suavemente sob água corrente fria em uma peça de <strong>aço
+                            inoxidável</strong> (como as costas de uma colher de sopa ou a própria cuba da pia de inox).
+                        As moléculas de enxofre responsáveis pelo cheiro se ligam aos metais do aço e saem imediatamente
+                        sem necessidade de esfregar sabão agressivo!
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Como testar se o fermento em pó ainda está ativo e bom para uso?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        Coloque 1 colher de chá do fermento químico em meio copo de água morna. Se ele começar a
+                        borbulhar e efervescer intensamente na hora, está perfeito para o uso. Se a água ficar parada ou
+                        com poucas bolhas, ele perdeu a força e vai fazer o bolo solar.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Por que o bolo fica murcho ou afunda no meio após sair do forno?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        Os três motivos mais comuns são: <strong>1)</strong> Abrir a porta do forno antes dos primeiros
+                        20 a 25 minutos, causando choque térmico e perda de estrutura; <strong>2)</strong> Excesso de
+                        fermento, que cria bolhas de ar grandes demais que estouram e colapsam a massa;
+                        <strong>3)</strong> Forno descalibrado com temperatura abaixo de 180°C.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <span>Como recuperar uma maionese ou molho emulsionado que talhou/desandou?</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        Em uma tigela limpa, coloque 1 colher (sopa) de água morna ou 1 gema nova de ovo. Comece a bater
+                        vigorosamente e vá adicionando a maionese talhada aos poucos, em fio contínuo. A emulsão se
+                        reorganizará e ficará aveludada novamente em menos de 2 minutos!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário para Compartilhar Dica com a Galera -->
+        <section class="share-tip-section" id="enviar-dica" aria-labelledby="share-tip-title">
+            <h3 id="share-tip-title">✍️ Compartilhe seu Segredo de Cozinha</h3>
+            <p class="section-subtitle">Tem um truque de família ou um macete infalível? Envie sua dica para aparecer na
+                nossa página!</p>
+
+            <form id="shareTipForm" class="share-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipAuthor">Seu Nome ou Apelido *</label>
+                        <input type="text" id="tipAuthor" class="form-input" placeholder="Ex: Chef Carlos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipCategory">Categoria *</label>
+                        <select id="tipCategory" class="form-select" required>
+                            <option value="tecnica">🔪 Preparo & Técnicas</option>
+                            <option value="confeitaria">🍰 Confeitaria & Massas</option>
+                            <option value="temperos">🧂 Temperos & Molhos</option>
+                            <option value="conservacao">❄️ Conservação & Validade</option>
+                            <option value="rapida">⏱️ Truques Rápidos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipTitle">Título da Dica *</label>
+                    <input type="text" id="tipTitle" class="form-input"
+                        placeholder="Ex: Como deixar a batata frita super sequinha e crocante" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipDescription">Explicação / Passo a Passo *</label>
+                    <textarea id="tipDescription" class="form-textarea"
+                        placeholder="Descreva como aplicar essa dica no dia a dia..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipSecret">Dica de Ouro / Segredo Especial (Opcional)</label>
+                    <input type="text" id="tipSecret" class="form-input"
+                        placeholder="Ex: Deixar 15 min no congelador antes de fritar">
+                </div>
+
+                <button type="submit" class="btn-primary" style="align-self: flex-start;">🚀 Publicar Minha
+                    Dica</button>
+            </form>
+        </section>
+
+        <!-- Navegação Rápida entre as Páginas -->
+        <section class="explore" aria-labelledby="explore-title">
+            <h3 id="explore-title">Explore nossas páginas</h3>
+            <div class="links-grid">
+                <a class="card-link" href="doces.html">🍰 Receitas Doces</a>
+                <a class="card-link" href="salgados.html">🍽️ Receitas Salgadas</a>
+                <a class="card-link" href="dicas.html">💡 Dicas de Cozinha</a>
+                <a class="card-link" href="sobre.html">👥 Sobre o Grupo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Padrão -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Receitas da Galera - Feito pelo grupo</p>
+        </div>
     </footer>
+
+    <!-- Modal para Sorteio de Dica Aleatória -->
+    <div class="modal-backdrop" id="tipModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-box">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Fechar janela">✕</button>
+            <div class="modal-badge-wrapper" id="modalBadge"></div>
+            <h3 id="modalTipTitle">Título da Dica</h3>
+            <p id="modalTipDesc">Descrição da dica sorteada...</p>
+            <div id="modalTipSecret" class="tip-secret" style="display: none;"></div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                <button class="btn-secondary" id="modalCopyBtn">📋 Copiar Dica</button>
+                <button class="btn-primary" id="modalAnotherBtn">🎲 Sortear Outra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container de Toasts -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
