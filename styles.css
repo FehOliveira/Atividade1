@@ -1,0 +1,215 @@
+/* Global */
+:root {
+    --bg: #0f1724;
+    --card: #ffffff;
+    --muted: #98a2b3;
+    --accent: #ff7a18;
+    --glass: rgba(255, 255, 255, 0.06);
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: linear-gradient(180deg, #071427 0%, #0f2a3a 100%);
+    color: #e6eef7;
+    line-height: 1.5
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+.site-header {
+    backdrop-filter: blur(6px);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.site-header h1 {
+    margin: 12px 0;
+    font-size: 20px
+}
+
+.main-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 18px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: all .22s
+}
+
+.main-nav a:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.03)
+}
+
+.main-nav a.active {
+    color: var(--accent);
+    font-weight: 600
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    border-radius: 12px;
+    margin-top: 18px
+}
+
+.hero h2 {
+    margin: 0 0 8px 0;
+    font-size: 28px
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(255, 122, 24, 0.18);
+    transition: transform .18s, box-shadow .18s
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(255, 122, 24, 0.18)
+}
+
+.cards-section {
+    margin-top: 28px
+}
+
+.cards-section h3 {
+    margin: 0 0 12px 0
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px
+}
+
+.card {
+    background: linear-gradient(180deg, #ffffff 4%, #f8f9fb 60%);
+    color: #082032;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+    transition: transform .28s, box-shadow .28s;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    overflow: hidden
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 24px 40px rgba(2, 6, 23, 0.65)
+}
+
+.card .thumb {
+    height: 120px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 12px
+}
+
+.card h4 {
+    margin: 0 0 8px 0
+}
+
+.card p {
+    margin: 0;
+    color: #334155
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: #6b7280;
+    font-size: 13px
+}
+
+.explore {
+    margin: 28px 0
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px
+}
+
+.card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all .18s
+}
+
+.card-link:hover {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+    color: #fff;
+    transform: translateY(-4px)
+}
+
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    margin-top: 36px;
+    padding: 20px 0;
+    color: var(--muted)
+}
+
+
+/* Responsive tweaks */
+@media (max-width:640px) {
+    .hero {
+        flex-direction: column;
+        gap: 12px
+    }
+
+    .site-header .container {
+        flex-direction: column;
+        align-items: flex-start
+    }
+
+    .main-nav {
+        margin-top: 8px
+    }
+}
+
+/* small micro-interactions */
+.card .fav {
+    float: right;
+    opacity: 0.9;
+    cursor: pointer;
+    transition: transform .18s
+}
+
+.card .fav:hover {
+    transform: scale(1.08)
+}
