@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Receitas de comidas salgadas deliciosas, práticas e testadas passo a passo. Pratos principais, massas, quiches, tortas e petiscos no Receitas da Galera.">
+    <title>Receitas da Galera - Receitas Salgadas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Cabeçalho / Navegação -->
+    <header class="site-header">
+        <div class="container">
+            <h1>🍽️ Receitas da Galera</h1>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <a href="index.html">Início</a>
+                <a href="doces.html">Doces</a>
+                <a href="salgados.html" class="active" aria-current="page">Salgados</a>
+                <a href="dicas.html">Dicas</a>
+                <a href="sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div>
+                <span class="hero-tag">🧂 Pratos & Comidas Salgadas</span>
+                <h2 id="hero-title">Receitas Salgadas de Dar Água na Boca</h2>
+                <p>De almoços de domingo a petiscos crocantes para reunir os amigos — aprenda receitas suculentas,
+                    testadas e cheias de sabor com fotos e modo de preparo completo.</p>
+                <div class="hero-actions">
+                    <button id="randomSavoryBtn" class="btn-primary" aria-label="Sortear um prato salgado aleatório">🎲
+                        Sortear Salgado Aleatório</button>
+                    <a href="#destaque-chef" class="btn-secondary">⭐ Destaque do Chef</a>
+                    <a href="#enviar-salgado" class="btn-secondary">✍️ Enviar sua Receita</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destaque do Chef (Hero Highlight) -->
+        <section class="chef-feature-card" id="destaque-chef" aria-label="Receita em Destaque da Semana">
+            <div class="chef-feature-img" style="background-image: url('img/lasanha_bolonhesa.jpg');"
+                aria-label="Foto de Lasanha à Bolonhesa"></div>
+            <div class="chef-feature-info">
+                <span class="gold-badge">⭐ Escolha do Chef da Semana</span>
+                <h3>Lasanha Tradicional à Bolonhesa</h3>
+                <p>Camadas generosas de massa fresca, molho bolonhesa rústico cozido lentamente com carne de primeira,
+                    bechamel aveludado e queijo gratinado crocante.</p>
+                <div class="chef-feature-meta">
+                    <span>⏱️ <strong>60 min</strong></span>
+                    <span>🍽️ <strong>8 porções</strong></span>
+                    <span>📊 <strong>Dificuldade: Média</strong></span>
+                </div>
+                <button class="btn-primary" id="viewChefHighlightBtn" style="width: 100%;">
+                    📖 Ver Receita Completa & Ingredientes
+                </button>
+            </div>
+        </section>
+
+        <!-- Filtros e Barra de Pesquisa de Salgados -->
+        <section class="tips-filter-bar savory-filter-bar" aria-label="Filtro e Busca de Salgados">
+            <div class="search-box">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="search" id="savorySearchInput" class="search-input"
+                    placeholder="Buscar por prato ou ingrediente (ex: carne, frango, queijo, massa, quiche, risoto...)"
+                    aria-label="Campo de busca de receitas salgadas">
+            </div>
+
+            <div class="categories-pills" role="tablist" aria-label="Filtrar por categoria de salgado">
+                <button class="pill-btn active" data-category="todas" role="tab" aria-selected="true">✨ Todos os
+                    Salgados</button>
+                <button class="pill-btn" data-category="principais" role="tab" aria-selected="false">🥘 Pratos
+                    Principais</button>
+                <button class="pill-btn" data-category="tortas" role="tab" aria-selected="false">🥧 Tortas &
+                    Quiches</button>
+                <button class="pill-btn" data-category="petiscos" role="tab" aria-selected="false">🍗 Petiscos &
+                    Salgadinhos</button>
+                <button class="pill-btn" data-category="massas" role="tab" aria-selected="false">🍝 Massas &
+                    Risotos</button>
+                <button class="pill-btn" data-category="rapidas" role="tab" aria-selected="false">⏱️ Rápidos (&lt; 35
+                    min)</button>
+            </div>
+        </section>
+
+        <!-- Grade de Cards de Salgados -->
+        <section class="cards-section" aria-labelledby="savory-grid-title">
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                <h3 id="savory-grid-title">Nossas Melhores Receitas Salgadas</h3>
+                <span id="savoryCount" style="color: var(--muted); font-size: 14px;">Carregando receitas...</span>
+            </div>
+
+            <div class="cards" id="savoryContainer" aria-live="polite">
+                <!-- Cards de salgados serão renderizados dinamicamente pelo script.js -->
+            </div>
+        </section>
+
+        <!-- Guia de Temperos e Harmonização -->
+        <section class="conversion-section" aria-labelledby="seasoning-title">
+            <h3 id="seasoning-title">🌿 Guia Rápido de Temperos para Pratos Salgados</h3>
+            <p class="section-subtitle">Realce o sabor das suas receitas combinando os temperos certos para cada tipo de
+                prato.</p>
+
+            <div class="seasoning-grid">
+                <div class="seasoning-card">
+                    <h4>🍗 Aves & Frango</h4>
+                    <p>Alho, tomilho, alecrim fresco, suco de limão, páprica doce e açafrão-da-terra para dar cor e
+                        aroma suave.</p>
+                </div>
+                <div class="seasoning-card">
+                    <h4>🥩 Carnes Vermelhas</h4>
+                    <p>Alho amassado, pimenta-do-reino moída na hora, páprica defumada, cominho em pó e folhas de louro.
+                    </p>
+                </div>
+                <div class="seasoning-card">
+                    <h4>🥧 Tortas, Quiches & Molhos</h4>
+                    <p>Noz-moscada ralada na hora, queijo parmesão de cura média, pimenta branca e manteiga de boa
+                        qualidade.</p>
+                </div>
+                <div class="seasoning-card">
+                    <h4>🍝 Massas & Risotos</h4>
+                    <p>Azeite extravirgem, manjericão fresco, sálvia na manteiga dourada, cebola em cubos mínimos e
+                        vinho branco seco.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário para Compartilhar Receita Salgada -->
+        <section class="share-tip-section" id="enviar-salgado" aria-labelledby="share-savory-title">
+            <h3 id="share-savory-title">✍️ Compartilhe sua Receita Salgada</h3>
+            <p class="section-subtitle">Tem aquele prato especial que todo mundo elogia na sua casa? Envie sua receita
+                para o nosso cardápio!</p>
+
+            <form id="shareSavoryForm" class="share-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="savoryAuthor">Seu Nome ou Apelido *</label>
+                        <input type="text" id="savoryAuthor" class="form-input" placeholder="Ex: Chef Juliana" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="savoryCategory">Categoria *</label>
+                        <select id="savoryCategory" class="form-select" required>
+                            <option value="principais">🥘 Pratos Principais</option>
+                            <option value="tortas">🥧 Tortas & Quiches</option>
+                            <option value="petiscos">🍗 Petiscos & Salgadinhos</option>
+                            <option value="massas">🍝 Massas & Risotos</option>
+                            <option value="rapidas">⏱️ Rápidos (&lt; 35 min)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="savoryTitle">Nome da Receita *</label>
+                        <input type="text" id="savoryTitle" class="form-input"
+                            placeholder="Ex: Fricassê de Frango Cremoso Gratinado" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="savoryDifficulty">Nível de Dificuldade *</label>
+                        <select id="savoryDifficulty" class="form-select" required>
+                            <option value="facil">Fácil</option>
+                            <option value="media">Média</option>
+                            <option value="avancada">Avançada</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="savoryTime">Tempo de Preparo *</label>
+                        <input type="text" id="savoryTime" class="form-input" placeholder="Ex: 40 min" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="savoryServings">Rendimento (Porções) *</label>
+                        <input type="text" id="savoryServings" class="form-input" placeholder="Ex: 6 porções" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="savoryDesc">Descrição Apetitosa *</label>
+                    <input type="text" id="savoryDesc" class="form-input"
+                        placeholder="Resuma em uma frase o que torna esse prato especial..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="savoryIngredients">Ingredientes (digite 1 por linha) *</label>
+                    <textarea id="savoryIngredients" class="form-textarea"
+                        placeholder="500g de peito de frango cozido&#10;1 lata de milho verde&#10;1 caixinha de creme de leite&#10;200g de mussarela"
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="savoryInstructions">Modo de Preparo (digite 1 passo por linha) *</label>
+                    <textarea id="savoryInstructions" class="form-textarea"
+                        placeholder="Bata o milho com o creme de leite no liquidificador.&#10;Refogue o frango desfiado com cebola e alho.&#10;Misture o creme ao frango e leve ao refratário com queijo por cima.&#10;Asse a 200°C por 20 minutos até gratinar."
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="savoryChefTip">Dica do Chef / Segredinho (Opcional)</label>
+                    <input type="text" id="savoryChefTip" class="form-input"
+                        placeholder="Ex: Cubra com batata palha bem fininha logo após sair do forno.">
+                </div>
+
+                <button type="submit" class="btn-primary" style="align-self: flex-start;">🚀 Publicar Receita
+                    Salgada</button>
+            </form>
+        </section>
+
+        <!-- Navegação Rápida entre as Páginas -->
+        <section class="explore" aria-labelledby="explore-title">
+            <h3 id="explore-title">Explore nossas páginas</h3>
+            <div class="links-grid">
+                <a class="card-link" href="doces.html">🍰 Receitas Doces</a>
+                <a class="card-link" href="salgados.html">🍽️ Receitas Salgadas</a>
+                <a class="card-link" href="dicas.html">💡 Dicas de Cozinha</a>
+                <a class="card-link" href="sobre.html">👥 Sobre o Grupo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Padrão -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Receitas da Galera - Feito pelo grupo</p>
+        </div>
+    </footer>
+
+    <!-- Modal Detalhado de Receita Completa -->
+    <div class="modal-backdrop" id="recipeModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="recipe-modal-box">
+            <button class="modal-close" id="recipeModalCloseBtn" aria-label="Fechar modal de receita">✕</button>
+            <div class="recipe-modal-header" id="modalRecipeHeader">
+                <div class="recipe-modal-header-content">
+                    <span class="tip-badge" id="modalRecipeCategory"
+                        style="background: var(--accent); color: #fff;">Salgados</span>
+                    <h3 id="modalRecipeTitle">Nome da Receita</h3>
+                </div>
+            </div>
+            <div class="recipe-modal-body">
+                <div class="recipe-modal-meta">
+                    <span id="modalRecipeTime">⏱️ 45 min</span>
+                    <span id="modalRecipeServings">🍽️ 6 porções</span>
+                    <span id="modalRecipeDiff">📊 Dificuldade: Média</span>
+                </div>
+
+                <h4 class="recipe-section-title">🥣 Ingredientes Necessários (marque os que já tem)</h4>
+                <ul class="ingredients-checklist" id="modalRecipeIngredients">
+                    <!-- Populado via JavaScript -->
+                </ul>
+
+                <h4 class="recipe-section-title">🔥 Modo de Preparo Passo a Passo</h4>
+                <ol class="instructions-steps" id="modalRecipeInstructions">
+                    <!-- Populado via JavaScript -->
+                </ol>
+
+                <div class="modal-chef-tip" id="modalRecipeChefTip"></div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px;">
+                    <button class="btn-secondary" id="copyRecipeBtn">📋 Copiar Receita Completa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container de Toasts -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
