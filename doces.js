@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('recipe-search');
     const filterButtons = document.querySelectorAll('.filter-button');
     const recipeCards = document.querySelectorAll('.recipe-card');
+    const toggleButtons = document.querySelectorAll('.recipe-toggle');
     const resultsCount = document.getElementById('results-count');
     const noResults = document.getElementById('no-results');
 
@@ -71,11 +72,40 @@ document.addEventListener('DOMContentLoaded', () => {
         filterRecipes();
     }
 
+    function toggleRecipe(button) {
+        const contentId = button.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+
+        if (!content) {
+            return;
+        }
+
+        const isExpanded =
+            button.getAttribute('aria-expanded') === 'true';
+
+        content.hidden = isExpanded;
+
+        button.setAttribute(
+            'aria-expanded',
+            String(!isExpanded)
+        );
+
+        button.textContent = isExpanded
+            ? 'Mostrar receita'
+            : 'Ocultar receita';
+    }
+
     searchInput.addEventListener('input', filterRecipes);
 
     filterButtons.forEach((button) => {
         button.addEventListener('click', () => {
             selectFilter(button);
+        });
+    });
+
+    toggleButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            toggleRecipe(button);
         });
     });
 
