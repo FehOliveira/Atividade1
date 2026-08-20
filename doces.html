@@ -87,6 +87,7 @@
                         type="button"
                         class="filter-button active"
                         data-filter="all"
+                        aria-pressed="true"
                     >
                         Todas
                     </button>
@@ -95,6 +96,7 @@
                         type="button"
                         class="filter-button"
                         data-filter="easy"
+                        aria-pressed="false"
                     >
                         Fácil
                     </button>
@@ -103,6 +105,7 @@
                         type="button"
                         class="filter-button"
                         data-filter="medium"
+                        aria-pressed="false"
                     >
                         Média
                     </button>
@@ -117,12 +120,16 @@
             <div class="section-heading">
                 <h3 id="recipes-title">Nossas receitas</h3>
 
-                <p class="results-count">
+                <p
+                    class="results-count"
+                    id="results-count"
+                    aria-live="polite"
+                >
                     3 receitas encontradas
                 </p>
             </div>
 
-            <div class="recipes-grid">
+            <div class="recipes-grid" id="recipes-grid">
                 <article
                     class="card recipe-card"
                     data-name="bolo de cenoura"
@@ -164,13 +171,16 @@
                                     <li>3 ovos</li>
                                     <li>1 xícara de óleo</li>
                                     <li>2 xícaras de açúcar</li>
+
                                     <li>
                                         2 e 1/2 xícaras de farinha
                                         de trigo
                                     </li>
+
                                     <li>
                                         1 colher de fermento em pó
                                     </li>
+
                                     <li>
                                         Chocolate para a cobertura
                                     </li>
@@ -262,10 +272,13 @@
                                     <li>
                                         1 lata de leite condensado
                                     </li>
+
                                     <li>
                                         1 medida da lata de leite
                                     </li>
+
                                     <li>3 ovos</li>
+
                                     <li>
                                         1 xícara de açúcar para a
                                         calda
@@ -352,13 +365,17 @@
                                     <li>
                                         1 lata de leite condensado
                                     </li>
+
                                     <li>
                                         100 g de chocolate meio amargo
                                     </li>
+
                                     <li>1 colher de manteiga</li>
+
                                     <li>
                                         2 colheres de creme de leite
                                     </li>
+
                                     <li>
                                         Chocolate granulado para
                                         decorar
@@ -405,7 +422,12 @@
                 </article>
             </div>
 
-            <div class="no-results" hidden>
+            <div
+                class="no-results"
+                id="no-results"
+                aria-live="polite"
+                hidden
+            >
                 <span aria-hidden="true">😕</span>
 
                 <h4>Nenhuma receita encontrada</h4>
@@ -425,5 +447,7 @@
             </p>
         </div>
     </footer>
+
+    <script src="doces.js"></script>
 </body>
 </html>
