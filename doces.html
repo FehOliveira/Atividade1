@@ -52,11 +52,82 @@
             </div>
         </section>
 
-        <section class="cards-section receitas-section">
-            <h3>Nossas receitas</h3>
+        <section
+            class="recipe-tools"
+            aria-labelledby="tools-title"
+        >
+            <div class="search-group">
+                <h3 id="tools-title">Encontre uma receita</h3>
+
+                <label for="recipe-search">
+                    Pesquisar pelo nome
+                </label>
+
+                <div class="search-box">
+                    <span aria-hidden="true">🔎</span>
+
+                    <input
+                        type="search"
+                        id="recipe-search"
+                        name="recipe-search"
+                        placeholder="Ex.: bolo ou brigadeiro"
+                        autocomplete="off"
+                    >
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <p>Filtrar por dificuldade:</p>
+
+                <div
+                    class="filter-buttons"
+                    aria-label="Filtros de dificuldade"
+                >
+                    <button
+                        type="button"
+                        class="filter-button active"
+                        data-filter="all"
+                    >
+                        Todas
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="easy"
+                    >
+                        Fácil
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-button"
+                        data-filter="medium"
+                    >
+                        Média
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="cards-section receitas-section"
+            aria-labelledby="recipes-title"
+        >
+            <div class="section-heading">
+                <h3 id="recipes-title">Nossas receitas</h3>
+
+                <p class="results-count">
+                    3 receitas encontradas
+                </p>
+            </div>
 
             <div class="recipes-grid">
-                <article class="card recipe-card">
+                <article
+                    class="card recipe-card"
+                    data-name="bolo de cenoura"
+                    data-difficulty="easy"
+                >
                     <img
                         class="recipe-image"
                         src="img/bolo_cenoura_horizontal.jpg"
@@ -111,34 +182,31 @@
 
                                 <ol>
                                     <li>
-                                        Descasque e corte as cenouras
-                                        em pedaços pequenos.
+                                        Descasque e corte as cenouras.
                                     </li>
 
                                     <li>
-                                        Bata no liquidificador as
-                                        cenouras, os ovos e o óleo.
+                                        Bata as cenouras, os ovos e o
+                                        óleo no liquidificador.
                                     </li>
 
                                     <li>
                                         Coloque a mistura em uma
-                                        tigela e acrescente o açúcar.
+                                        tigela e adicione o açúcar.
                                     </li>
 
                                     <li>
-                                        Adicione a farinha aos poucos
-                                        e misture até a massa ficar
-                                        homogênea.
+                                        Acrescente a farinha aos
+                                        poucos e misture.
                                     </li>
 
                                     <li>
-                                        Acrescente o fermento e
-                                        misture delicadamente.
+                                        Adicione o fermento e misture
+                                        delicadamente.
                                     </li>
 
                                     <li>
-                                        Despeje em uma forma untada e
-                                        asse a 180 °C por cerca de
+                                        Asse a 180 °C por cerca de
                                         40 minutos.
                                     </li>
 
@@ -152,7 +220,11 @@
                     </div>
                 </article>
 
-                <article class="card recipe-card">
+                <article
+                    class="card recipe-card"
+                    data-name="pudim de leite"
+                    data-difficulty="medium"
+                >
                     <div
                         class="recipe-image-placeholder"
                         role="img"
@@ -211,14 +283,12 @@
                                     </li>
 
                                     <li>
-                                        Espalhe a calda pelo fundo e
-                                        pelas laterais da forma.
+                                        Espalhe a calda pela forma.
                                     </li>
 
                                     <li>
                                         Bata o leite condensado, o
-                                        leite e os ovos no
-                                        liquidificador.
+                                        leite e os ovos.
                                     </li>
 
                                     <li>
@@ -233,7 +303,7 @@
 
                                     <li>
                                         Espere esfriar e leve à
-                                        geladeira antes de desenformar.
+                                        geladeira.
                                     </li>
                                 </ol>
                             </section>
@@ -241,7 +311,11 @@
                     </div>
                 </article>
 
-                <article class="card recipe-card">
+                <article
+                    class="card recipe-card"
+                    data-name="brigadeiro gourmet"
+                    data-difficulty="easy"
+                >
                     <img
                         class="recipe-image"
                         src="img/brigadeiro_gourmet.webp"
@@ -281,9 +355,7 @@
                                     <li>
                                         100 g de chocolate meio amargo
                                     </li>
-                                    <li>
-                                        1 colher de manteiga
-                                    </li>
+                                    <li>1 colher de manteiga</li>
                                     <li>
                                         2 colheres de creme de leite
                                     </li>
@@ -310,29 +382,38 @@
                                     </li>
 
                                     <li>
-                                        Acrescente o creme de leite e
-                                        continue misturando.
+                                        Acrescente o creme de leite.
                                     </li>
 
                                     <li>
-                                        Quando a mistura desgrudar do
-                                        fundo, desligue o fogo.
+                                        Continue até a mistura
+                                        desgrudar do fundo.
                                     </li>
 
                                     <li>
-                                        Transfira para um prato untado
-                                        e espere esfriar.
+                                        Transfira para um prato e
+                                        espere esfriar.
                                     </li>
 
                                     <li>
-                                        Enrole os brigadeiros e passe
-                                        no granulado.
+                                        Enrole e passe no granulado.
                                     </li>
                                 </ol>
                             </section>
                         </div>
                     </div>
                 </article>
+            </div>
+
+            <div class="no-results" hidden>
+                <span aria-hidden="true">😕</span>
+
+                <h4>Nenhuma receita encontrada</h4>
+
+                <p>
+                    Tente pesquisar outro nome ou selecionar um filtro
+                    diferente.
+                </p>
             </div>
         </section>
     </main>
