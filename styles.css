@@ -13,14 +13,21 @@
 }
 
 body {
-    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+    min-height: 100vh;
     margin: 0;
-    background: linear-gradient(180deg, #071427 0%, #0f2a3a 100%);
-    color: #e6eef7;
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
     line-height: 1.5;
+    color: #e6eef7;
+    background: linear-gradient(180deg, #071427 0%, #0f2a3a 100%);
+}
+
+img {
+    display: block;
+    max-width: 100%;
 }
 
 .container {
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
     padding: 24px;
@@ -29,13 +36,13 @@ body {
 /* Cabeçalho */
 
 .site-header {
-    backdrop-filter: blur(6px);
     background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0.04),
         rgba(255, 255, 255, 0.02)
     );
     border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
 }
 
 .site-header .container {
@@ -50,18 +57,22 @@ body {
 }
 
 .main-nav a {
-    color: var(--muted);
-    text-decoration: none;
+    display: inline-block;
     margin-left: 18px;
     padding: 8px 10px;
     border-radius: 8px;
-    transition: all 0.22s;
+    color: var(--muted);
+    text-decoration: none;
+    transition:
+        color 0.22s,
+        background-color 0.22s,
+        transform 0.22s;
 }
 
 .main-nav a:hover {
     color: #ffffff;
-    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
 }
 
 .main-nav a.active {
@@ -69,20 +80,20 @@ body {
     font-weight: 600;
 }
 
-/* Destaque principal */
+/* Área de destaque */
 
 .hero {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
     padding: 36px;
+    border-radius: 12px;
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.02),
         transparent
     );
-    border-radius: 12px;
-    margin-top: 18px;
 }
 
 .hero h2 {
@@ -98,20 +109,22 @@ body {
 /* Botões */
 
 .btn-primary {
-    background: var(--accent);
-    color: #ffffff;
     padding: 12px 18px;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
+    color: #ffffff;
+    background: var(--accent);
     box-shadow: 0 6px 18px rgba(255, 122, 24, 0.18);
-    transition: transform 0.18s, box-shadow 0.18s;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        transform 0.18s,
+        box-shadow 0.18s;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
     box-shadow: 0 14px 30px rgba(255, 122, 24, 0.18);
+    transform: translateY(-3px);
 }
 
 /* Cards da página inicial */
@@ -131,27 +144,29 @@ body {
 }
 
 .card {
-    background: linear-gradient(180deg, #ffffff 4%, #f8f9fb 60%);
-    color: #082032;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
-    transition: transform 0.28s, box-shadow 0.28s;
-    border: 1px solid rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    color: #082032;
+    background: linear-gradient(180deg, #ffffff 4%, #f8f9fb 60%);
+    box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+    transition:
+        transform 0.28s,
+        box-shadow 0.28s;
 }
 
 .card:hover {
-    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 24px 40px rgba(2, 6, 23, 0.65);
+    transform: translateY(-10px) scale(1.02);
 }
 
 .card .thumb {
     height: 120px;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
     margin-bottom: 12px;
+    border-radius: 8px;
+    background-position: center;
+    background-size: cover;
 }
 
 .card h4 {
@@ -189,19 +204,22 @@ body {
     justify-content: center;
     padding: 14px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.03);
     color: var(--muted);
+    background: rgba(255, 255, 255, 0.03);
     text-decoration: none;
-    transition: all 0.18s;
+    transition:
+        color 0.18s,
+        background-color 0.18s,
+        transform 0.18s;
 }
 
 .card-link:hover {
+    color: #ffffff;
     background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0.04),
         rgba(255, 255, 255, 0.02)
     );
-    color: #ffffff;
     transform: translateY(-4px);
 }
 
@@ -218,11 +236,11 @@ body {
 .recipes-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 26px;
 }
 
 .recipe-card {
-    padding: 24px;
+    padding: 0;
     border-top: 4px solid var(--accent);
 }
 
@@ -230,16 +248,41 @@ body {
     transform: translateY(-5px);
 }
 
+.recipe-image,
+.recipe-image-placeholder {
+    width: 100%;
+    height: 260px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.recipe-image {
+    object-fit: cover;
+    object-position: center;
+}
+
+.recipe-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #f59e0b, #92400e);
+    font-size: 90px;
+}
+
+.recipe-body {
+    padding: 24px;
+}
+
 .recipe-header {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 20px;
 }
 
 .recipe-header h4 {
-    font-size: 22px;
     color: #172033;
+    font-size: 22px;
 }
 
 .recipe-header p {
@@ -299,8 +342,8 @@ body {
 
 .ingredients {
     padding: 18px;
-    background: #fff7ed;
     border-radius: 10px;
+    background: #fff7ed;
 }
 
 .preparation {
@@ -310,9 +353,9 @@ body {
 /* Rodapé */
 
 .site-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
     margin-top: 36px;
     padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
     color: var(--muted);
 }
 
@@ -332,12 +375,6 @@ body {
 /* Responsividade */
 
 @media (max-width: 700px) {
-    .hero {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
     .site-header .container {
         flex-direction: column;
         align-items: flex-start;
@@ -354,6 +391,13 @@ body {
         margin-left: 0;
     }
 
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 26px;
+    }
+
     .recipe-header {
         flex-direction: column;
         gap: 12px;
@@ -364,7 +408,37 @@ body {
         gap: 12px;
     }
 
-    .recipe-card {
+    .recipe-image,
+    .recipe-image-placeholder {
+        height: 200px;
+    }
+
+    .recipe-body {
         padding: 18px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 16px;
+    }
+
+    .site-header h1 {
+        font-size: 18px;
+    }
+
+    .main-nav a {
+        padding: 6px 8px;
+        font-size: 14px;
+    }
+
+    .recipe-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .recipe-image,
+    .recipe-image-placeholder {
+        height: 170px;
     }
 }
